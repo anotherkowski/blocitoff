@@ -5,7 +5,7 @@ git checkout -b checkpoint-number
 ## After Checkpoint
 git status
 git add .
-git commit -m "Checkpoint (number) completed"
+git commit -m "DESCRIPTION OF COMMIT"
 git push origin checkpoint-number
 git checkout master
 git merge checkpoint-number
