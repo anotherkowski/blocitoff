@@ -15,4 +15,7 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore my personal notes
 /annsnotes.md
+/bloc_git_instructions.md
