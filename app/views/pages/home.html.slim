@@ -1,2 +1,18 @@
-h1 Pages#home
-p Find me in app/views/pages/home.html.slim
+.container
+  #h1 Home
+  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+  h1 Welcome \#{current_user.name} to the show.
+  h1#headline
+    | headline
+  h2#tagline.small.tagline
+    | small tagline
+  .content
+     = current_user
+
+/[if IE] 
+  p Get a better browser
+
+#content
+  p Example
+
+  == yield
