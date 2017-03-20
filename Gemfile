@@ -4,7 +4,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3' --- removed 3/20 to deploy to heroku, following instructions from http://docs.railsbridge.org/intro-to-rails/deploying_to_heroku
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -41,6 +42,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'
   gem 'foreman'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -54,4 +56,8 @@ end
 group :test do
   gem 'capybara', '~> 2.3.0'
   gem 'nyan-cat-formatter'
+end
+
+group :production do
+  gem 'pg'
 end
