@@ -17,5 +17,7 @@
 /tmp
 
 # Ignore my personal notes
-/annsnotes.md
-/bloc_git_instructions.md
+annsnotes.md
+bloc_git_instructions.md
+.env
+Procfile
