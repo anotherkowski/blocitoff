@@ -1,18 +1,4 @@
-.container
-  #h1 Home
-  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-  h1 Welcome \#{current_user.name} to the show.
-  h1#headline
-    | headline
-  h2#tagline.small.tagline
-    | small tagline
-  .content
-     = current_user
+h1 Welcome to Blocitoff
+h3 A self-destructing to do list
 
-/[if IE] 
-  p Get a better browser
-
-#content
-  p Example
-
-  == yield
+== yield

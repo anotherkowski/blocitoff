@@ -7,18 +7,28 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+          a.navbar-brand href="/pages/home" Brand
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav 
+            li.active: a href="#" Link
+            li: a href="#" Link2
+          p.navbar-text.pull-right
+            - if user_signed_in?
+              |  Welcome 
+              strong
+                = current_user.email
+              | . 
+              = link_to 'Logout', destroy_user_session_path, :method => :delete
+            - else
+              = link_to 'Sign up', new_user_registration_path, :class => 'navbar-link'
     - if notice
       p.alert.alert-success
         = notice
     - if alert
       p.alert.alert-danger
         = alert
-    p.navbar-tet.pull-right
-      - if user_signed_in?
-        |  Logged in as 
-        strong
-          = current_user.email
-        | . 
-      - else
-        = link_to 'Sign up', new_user_registration_path, :class => 'navbar-link'
+
     = yield
