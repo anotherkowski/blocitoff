@@ -24,4 +24,17 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
+
+  # TODO: auto-generated
+  describe 'GET edit' do
+    before do
+      sign_in
+    end
+    it 'works' do
+      get :edit
+      expect(response.status).to eq(200)
+    end
+  end
+
+
 end

@@ -37,6 +37,8 @@ gem 'bootstrap-sass', '~> 2.3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'regressor', '~> 0.6.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -56,6 +58,7 @@ end
 group :test do
   gem 'capybara', '~> 2.3.0'
   gem 'nyan-cat-formatter'
+  gem 'shoulda-matchers', '~> 2.7.0'
 end
 
 group :production do
