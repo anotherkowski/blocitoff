@@ -14,8 +14,9 @@ html
         .collapse.navbar-collapse
           ul.nav.navbar-nav 
             li.active: a href="/pages/about" About
-            li 
-              = link_to 'My Account', user_path(current_user)
+            - if user_signed_in?
+                li 
+                = link_to 'My Account', user_path(current_user)
           p.navbar-text.pull-right
             - if user_signed_in?
               |  Welcome 
@@ -33,5 +34,5 @@ html
     - if alert
       p.alert.alert-danger
         = alert
-
-    = yield
+    .container
+      = yield
