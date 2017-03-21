@@ -2,7 +2,7 @@ require 'faker'
 
 FactoryGirl.define do
 
-    factory :todo, class: Todo do
+    factory :item, class: Item do
     end
 
 end
