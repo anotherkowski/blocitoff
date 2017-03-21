@@ -16,7 +16,7 @@ html
             li.active: a href="/pages/about" About
             - if user_signed_in?
                 li 
-                  = link_to 'My Account', user_path(current_user)
+                  = link_to 'My Profile', user_path(current_user)
           p.navbar-text.pull-right
             - if user_signed_in?
               |  Welcome 
