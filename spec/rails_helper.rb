@@ -9,6 +9,7 @@ require 'rspec/rails'
 # note: require 'devise' after require 'rspec/rails'
 require 'devise'
 require 'shoulda/matchers'
+require 'factory_girl'
 
 ActiveRecord::Migration.maintain_test_schema!
 
