@@ -26,6 +26,9 @@ RSpec.configure do |config|
   # For Devise >= 4.1.1
   config.include Devise::Test::ControllerHelpers, :type => :controller
 
+  # Include FactoryGirl so we can use 'create' instead of 'FactoryGirl.create'
+   config.include FactoryGirl::Syntax::Methods
+   
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
