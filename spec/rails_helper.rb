@@ -11,6 +11,15 @@ require 'devise'
 require 'shoulda/matchers'
 require 'factory_girl'
 
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    # Choose a test framework:
+    with.test_framework :rspec
+    # Implies all Rails libraries
+    with.library :rails
+  end
+end
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
