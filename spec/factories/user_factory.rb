@@ -8,4 +8,5 @@ FactoryGirl.define do
       password_confirmation "password"
       confirmed_at Date.today
     end
+    
 end

@@ -3,8 +3,6 @@ require 'faker'
 FactoryGirl.define do
 
     factory :item, class: Item do
-      user = build(:user)
-      name { Faker::Hipster.words(4)}
+      name { Faker::Hipster.sentence(1)}
     end
-
 end
