@@ -6,28 +6,28 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-    
+
   body
     nav.navbar.navbar-default.navbar-fixed-top
       .container-fluid
         .navbar-header
           a.navbar-brand href="/pages/home" Blocitoff
         .collapse.navbar-collapse
-          ul.nav.navbar-nav 
+          ul.nav.navbar-nav
             li.active: a href="/pages/about" About
             - if user_signed_in?
-                li 
+                li
                   = link_to 'My Profile', user_path(current_user)
           p.navbar-text.pull-right
             - if user_signed_in?
-              |  Welcome 
+              |  Welcome
               strong
                 = link_to current_user.email, user_path(current_user)
-              | . 
+              | .
               = link_to 'Logout', destroy_user_session_path, :method => :delete
             - else
               = link_to 'Sign up', new_user_registration_path, :class => 'navbar-link'
-              |  | 
+              |  |
               = link_to 'Login', new_user_session_path, :class => 'navbar-link'
     - if notice
       p.alert.alert-success
