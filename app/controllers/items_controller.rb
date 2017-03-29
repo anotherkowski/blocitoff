@@ -7,10 +7,10 @@ class ItemsController < ApplicationController
 
     if @item.save!
       flash[:notice] = "Item was saved successfully"
-      redirect_to [@user]
+      redirect_to @user
     else
       flash.now[:alert] = "There was an error saving your item"
-      redirect_to [@user]
+      redirect_to @user
     end
   end
 
