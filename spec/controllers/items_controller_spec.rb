@@ -4,7 +4,6 @@ RSpec.describe ItemsController, type: :controller do
   let(:my_user) { create(:user) }
   let(:my_item) { create(:item, user: my_user) }
 
-  # Shoulda matchers
   it { should route(:post, '/users/1/items').to(action: :create, user_id: 1) }
 
   context "guest" do
@@ -15,6 +14,7 @@ RSpec.describe ItemsController, type: :controller do
       end
     end
   end
+  
   context "signed in user" do
     before do
       sign_in(my_user)
