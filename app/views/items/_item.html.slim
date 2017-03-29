@@ -1,0 +1,11 @@
+div.media
+  div.media-body
+    table
+      th
+        h5 Task name
+      th
+        h5 Created at
+      - for item in @user.items
+        tr
+          td.name = item.name
+          td.created_at = item.created_at 
