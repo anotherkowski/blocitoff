@@ -8,3 +8,11 @@ p
   br
   strong
       =link_to 'Edit my information', edit_user_registration_path, :class => 'navbar-link'
+
+- if @user.items.empty?
+  p You have not items
+- else 
+  p You have items
+  hr
+  h4 Create new items
+  = render 'items/create'
