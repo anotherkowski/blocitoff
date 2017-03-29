@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users do
+  resources :users, only: [] do
     resources :items, only: [:create]
   end
+
+  # resources :items, only: [:create]
 
   root 'pages#home'
 

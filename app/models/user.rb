@@ -4,7 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :confirmable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
   # allows a user to have many items associated with account
-  has_many :items
+  has_many :items, dependent: :destroy
+
+  # validations
+
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -22,6 +25,8 @@ class User < ActiveRecord::Base
   # Only allow letter, number, underscore and punctuation.
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
-  validates :username, uniqueness: true
+  validates :username, uniqueness: true, presence: true
+
+  validates :email, uniqueness: true, presence: true
 
 end

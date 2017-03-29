@@ -9,7 +9,9 @@ require 'rspec/rails'
 # note: require 'devise' after require 'rspec/rails'
 require 'devise'
 require 'shoulda/matchers'
-require 'factory_girl'
+# require 'factory_girl'
+require 'factory_girl_rails'
+require 'slim'
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -23,12 +25,14 @@ end
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-  # For Devise >= 4.1.1
+  # For Devise <= 4.1.1
   config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+  # config.include Devise::TestHelpers, :type => :controller
 
   # Include FactoryGirl so we can use 'create' instead of 'FactoryGirl.create'
    config.include FactoryGirl::Syntax::Methods
-   
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
