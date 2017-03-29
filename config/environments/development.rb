@@ -38,4 +38,28 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Required by Devise gem
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}
+
+  # Configure Devise mailer - raise exception if mail send failure
+  config.action_mailer.raise_delivery_errors = true
+
+  # # Following tutorial instructions // https://rubyonrailshelp.wordpress.com/2014/01/02/setting-up-mailer-using-devise-for-forgot-password/
+  #
+  # config.action_mailer.delivery_method = :smtp
+  #
+  # config.action_mailer.smtp_settings = {
+  # address: "smtp.gmail.com",
+  # port: 587,
+  # domain: ENV["GMAIL_DOMAIN"],
+  # authentication: "plain",
+  # enable_starttls_auto: true,
+  # user_name: ENV["GMAIL_USERNAME"],
+  # password: ENV["GMAIL_PASSWORD"]
+  # }
+
 end
