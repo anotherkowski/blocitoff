@@ -24,9 +24,9 @@ RSpec.describe ItemsController, type: :controller do
         post :create, user_id: my_user.id, item: {name: Faker::Hipster.sentence(2)}
         expect(assigns(:item)).to eq Item.last
       end
-      it 'returns http success' do
+      it 'redirect to user profile' do
         post :create, user_id: my_user.id, item: {name: Faker::Hipster.sentence(2)}
-        expect(response).to have_http_status(:success)
+        expect(response).to redirect_to(user_path(assigns(:user)))
        end
       it 'increases number of items by 1' do
         expect{post :create, user_id: my_user.id, item: {name: Faker::Hipster.sentence(2)}}.to change(Item,:count).by(1)
