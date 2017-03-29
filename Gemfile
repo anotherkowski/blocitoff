@@ -5,7 +5,6 @@ ruby '2.2.1'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3' --- removed 3/20 to deploy to heroku, following instructions from http://docs.railsbridge.org/intro-to-rails/deploying_to_heroku
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -28,6 +27,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # Use bootstrap to style the application
 gem 'bootstrap-sass', '~> 2.3'
+gem 'bootstrap-generators', '~> 3.3.4'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -43,6 +43,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'foreman'
   gem 'sqlite3'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -56,6 +58,7 @@ end
 group :test do
   gem 'capybara', '~> 2.3.0'
   gem 'nyan-cat-formatter'
+  gem 'shoulda-matchers', '~> 3.1.0'
 end
 
 group :production do

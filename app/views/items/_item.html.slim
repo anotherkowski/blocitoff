@@ -1,0 +1,11 @@
+div.table-responsive
+  table.table
+    th
+      h5 Task name
+    th
+      h5 Created at
+    tbody
+    - for item in @user.items
+      tr
+        td.name = item.name
+        td.created_at = item.created_at.strftime("%B, %d, %Y")

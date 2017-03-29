@@ -1,27 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-
-  context "when user is logged in" do
-
-    it "should have a current_user" do
-      sign_in
-      # note the fact that you should remove the "validate_session" parameter if this was a scaffold-generated controller
-      expect(subject.current_user).to_not eq(nil)
+describe 'GET #index' do
+    context 'when user is logged in' do
+      with :user
+      before do
+        sign_in user
+        get :index
+      end
+      it { is_expected.to respond_with :ok }
+      it { is_expected.to render_with_layout :application }
+      it { is_expected.to render_template :index }
     end
-
-    it "GET #show" do
-      # Note, rails 3.x scaffolding may add lines like get :index, {}, valid_session
-      # the valid_session overrides the devise login. Remove the valid_session from your specs
-      get show
-      response.should be_success
-    end
-  end
-
-  context "when user is not logged in" do
-    it "redirects user to login page" do
-
+    context 'when user is logged out' do
+      before do
+        get :index
+      end
+      it { is_expected.to redirect_to new_session_path }
+      it { is_expected.to set_session(:return_to).to(user_path) }
     end
   end
-
 end
