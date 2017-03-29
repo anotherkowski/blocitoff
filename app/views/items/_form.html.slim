@@ -1,0 +1,9 @@
+= form_for([@user, @user.items.build]) do |f|
+  div.field
+    = f.label :name
+    br
+    = f.text_field :name
+  div.hidden
+    = f.text_field :user_id
+  div.actions
+    = f.submit
