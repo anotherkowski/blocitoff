@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
 
     if @item.save # Use ! and make sure it doesn't raise an exception.
       flash[:notice] = "Item was saved successfully"
-      render template: 'items/create'
     else
       flash.now[:alert] = "There was an error saving your item"
     end

@@ -7,6 +7,14 @@ RSpec.describe ItemsController, type: :controller do
   # Shoulda matchers
   it { should route(:post, '/users/1/items').to(action: :create, user_id: 1) }
 
+  context "guest" do
+    describe "POST #create" do
+      it "redirects the user to sign in" do
+        post :create, user_id: my_user.id, item: {name: Faker::Hipster.sentence(2)}
+        expect(response).to redirect_to(user_session_path)
+      end
+    end
+  end
   describe 'POST #create' do
     before do
       sign_in(my_user)
@@ -17,7 +25,7 @@ RSpec.describe ItemsController, type: :controller do
     end
     it 'returns http success' do
       post :create, user_id: my_user.id, item: {name: Faker::Hipster.sentence(2)}
-      expect(response).to redirect_to(user_items_path)
+      expect(response).to have_http_status(:success)
      end
     it 'increases number of items by 1' do
       expect{post :create, user_id: my_user.id, item: {name: Faker::Hipster.sentence(2)}}.to change(Item,:count).by(1)
