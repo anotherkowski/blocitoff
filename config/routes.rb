@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :items, only: [:create]
   end
-  resources :items, only: [:delete]
   
+  resources :items, only: [:destroy]
+
   root 'pages#home'
 
   get 'pages/home'

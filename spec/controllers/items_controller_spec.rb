@@ -37,8 +37,8 @@ RSpec.describe ItemsController, type: :controller do
 
     describe "DELETE destroy" do
       it "deletes the post" do
-        delete :destroy, {id: my_item}
-        count = Item.where({id: my_item}).size
+        delete :destroy, {id: my_item.id}
+        count = Item.where({id: my_item.id}).size
         expect(count).to eq 0
       end
       it "redirects to users index" do

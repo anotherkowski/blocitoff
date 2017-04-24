@@ -4,10 +4,13 @@ div.table-responsive
       h5 Task name
     th
       h5 Created at
+    th 
     tbody
     - for item in @user.items
       tr
         td.name = item.name
         td.created_at = item.created_at.strftime("%B, %d, %Y")
-        |
-          <%= link_to "", item, method: :delete, class: 'glyphicon glyphicon-ok' %>
+        td
+          = link_to '', item_path(item.id), :method => :delete, class: 'glyphicon glyphicon-ok'
+
+          
