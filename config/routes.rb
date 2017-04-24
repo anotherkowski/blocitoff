@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   resources :users do
     resources :items, only: [:create]
   end
+  resources :items, only: [:delete]
   
   root 'pages#home'
-  
+
   get 'pages/home'
   get 'pages/about'
 end

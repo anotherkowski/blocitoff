@@ -9,3 +9,5 @@ div.table-responsive
       tr
         td.name = item.name
         td.created_at = item.created_at.strftime("%B, %d, %Y")
+        |
+          <%= link_to "", item, method: :delete, class: 'glyphicon glyphicon-ok' %>
