@@ -7,20 +7,22 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'faker'
 # Create myself
-user = User.create!(
+my_user = User.create!(
   username: 'annhnova',
   email: 'annhnova@gmail.com',
   password: 'annlovesmax'
 )
-user.skip_confirmation!
-user.save!
+my_user.skip_confirmation!
+my_user.save!
 # Create users
 25.times do
-  User.create!(
+  user = User.create!(
   username: Faker::Internet.user_name,
   email: Faker::Internet.email,
-  password: Faker::Internet.password
+  password: Faker::Internet.password,
   )
+  user.skip_confirmation!
+  user.save!
 end
 users = User.all
 
@@ -30,7 +32,7 @@ users = User.all
   name: Faker::Hacker.say_something_smart,
   user: users.sample
   )
-  item.update_attribute(:created_at, rand(10.minutes .. 1.year).ago)
+  item.update_attribute(:created_at, Faker::Time.between(10.days.ago, Date.today, :all))
 end
 
 puts "Seed finished"
