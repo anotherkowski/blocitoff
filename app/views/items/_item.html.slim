@@ -1,11 +1,14 @@
 div.table-responsive
   table.table
-    th
+    th.name
       h5 Task name
     th
       h5 Created at
+    th 
+      h5 Time remaining
     tbody
     - for item in @user.items
       tr
-        td.name = item.name
+        td = item.name
         td.created_at = item.created_at.strftime("%B, %d, %Y")
+        td = item.time_remaining

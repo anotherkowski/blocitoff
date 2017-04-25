@@ -10,7 +10,8 @@ require 'faker'
 User.create!(
   username: 'annhnova',
   email: 'annhnova@gmail.com',
-  password: 'annlovesmax'
+  password: 'annlovesmax',
+  :confirmed_at => DateTime.now
 )
 # Create users
 25.times do
