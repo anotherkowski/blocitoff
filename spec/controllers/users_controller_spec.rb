@@ -1,23 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-describe 'GET #index' do
-    context 'when user is logged in' do
-      with :user
-      before do
-        sign_in user
-        get :index
-      end
-      it { is_expected.to respond_with :ok }
-      it { is_expected.to render_with_layout :application }
-      it { is_expected.to render_template :index }
+  let(:my_user) { create(:user) }
+
+  describe "GET #show" do
+    before do
+      sign_in(my_user)
     end
-    context 'when user is logged out' do
-      before do
-        get :index
-      end
-      it { is_expected.to redirect_to new_session_path }
-      it { is_expected.to set_session(:return_to).to(user_path) }
+    it "displays user#show when logged in" do
+      get :show, :id => my_user.id
+      expect(response).to have_http_status(200)
     end
   end
 end
