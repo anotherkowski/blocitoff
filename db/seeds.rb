@@ -10,7 +10,8 @@ require 'faker'
 user = User.create!(
   username: 'annhnova',
   email: 'annhnova@gmail.com',
-  password: 'annlovesmax'
+  password: 'annlovesmax',
+  :confirmed_at => DateTime.now
 )
 user.skip_confirmation!
 user.save!
