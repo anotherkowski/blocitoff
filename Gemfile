@@ -43,7 +43,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'foreman'
   gem 'sqlite3'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', :require => false
   gem 'faker'
 end
 
@@ -58,7 +58,7 @@ end
 group :test do
   gem 'capybara', '~> 2.3.0'
   gem 'nyan-cat-formatter'
-  gem 'shoulda-matchers', '~> 3.1.0'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :production do

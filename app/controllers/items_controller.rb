@@ -14,6 +14,19 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @user = @item.user
+
+    if @item.destroy
+      flash[:notice] = "Task was complete! Delete successful. \"#{@item.name}\" = Complete."
+      redirect_to user_path(@user.id)
+    else
+      flash.now[:alert] = "There was a problem marking your task as complete"
+      redirect_to user_path(@user.id)
+    end
+  end
+
 private
   def item_params
     params.require(:item).permit(:name)

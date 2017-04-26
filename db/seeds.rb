@@ -7,12 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'faker'
 # Create myself
-User.create!(
+user = User.create!(
   username: 'annhnova',
   email: 'annhnova@gmail.com',
   password: 'annlovesmax',
   :confirmed_at => DateTime.now
 )
+user.skip_confirmation!
+user.save!
 # Create users
 25.times do
   User.create!(

@@ -6,9 +6,13 @@ div.table-responsive
       h5 Created at
     th 
       h5 Time remaining
+    th
+      h5 Delete
     tbody
     - for item in @user.items
       tr
         td = item.name
         td.created_at = item.created_at.strftime("%B, %d, %Y")
         td = item.time_remaining
+        td 
+           = link_to '', item_path(item.id), :method => :delete, class: 'glyphicon glyphicon-ok'
