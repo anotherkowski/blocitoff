@@ -30,7 +30,8 @@ gem 'bootstrap-sass', '~> 2.3'
 gem 'bootstrap-generators', '~> 3.3.4'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+# Automate rake tasks with whenever gem
+gem 'whenever', :require => false
 # Use Unicorn as the app server
 # gem 'unicorn'
 
